@@ -117,6 +117,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     // meter for the customer patience level
     weak var lifeBar: CCSprite!
+    weak var lifeBarBG: CCNode!
     
     // icons for the tip bonus mechanic
     weak var bonusFish1: CCSprite!
@@ -236,6 +237,9 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     // play any openning animations
     func didLoadFromCCB() {
+        
+        lifeBarBG.zOrder -= 1
+        lifeBar.zOrder -= 1
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveDish1:"), name:"dish1 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveDish2:"), name:"dish2 served", object: nil)
