@@ -2375,11 +2375,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>198.38551330566406</real>
-							<real>192</real>
+							<real>0.3492702841758728</real>
+							<real>0.5</real>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -2582,11 +2582,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>461.83782958984375</real>
-							<real>192</real>
+							<real>0.81309479475021362</real>
+							<real>0.5</real>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>

@@ -14,7 +14,7 @@ class Box2: CCNode {
     
     func didLoadFromCCB() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "squishDish2", name:"dish2 served", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("squishDish2"), name:"dish2 served", object: nil)
     }
     
     func squishDish2() {
@@ -26,6 +26,6 @@ class Box2: CCNode {
     
     override func onExit() {
         NSNotificationCenter.defaultCenter().removeObserver(self) // Remove from all notifications being observed
-        
+        super.onExit()
     }
 }

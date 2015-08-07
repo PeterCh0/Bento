@@ -27,11 +27,14 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import "Mixpanel.h"
 
 @implementation AppController
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Mixpanel sharedInstanceWithToken:@"5af8620551ac4b86041cf52809695af6"];
+    [[Mixpanel sharedInstance] track:@"App launched"];
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
@@ -61,5 +64,7 @@
 {
     return [CCBReader loadAsScene:@"MainScene"];
 }
+
+
 
 @end

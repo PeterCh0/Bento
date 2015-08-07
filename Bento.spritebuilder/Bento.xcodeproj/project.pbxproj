@@ -94,11 +94,17 @@
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		D040CF991B53802700BBA042 /* FoodCritic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D040CF981B53802700BBA042 /* FoodCritic.swift */; };
+		D08088D61B6BDE1E0029A727 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08088D51B6BDE1E0029A727 /* Tutorial.swift */; };
+		D08088DA1B6F400B0029A727 /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08088D91B6F400B0029A727 /* Plate.swift */; };
 		D08563C11B55C0F500DDAD32 /* Tea.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08563C01B55C0F500DDAD32 /* Tea.swift */; };
 		D08563CB1B57276400DDAD32 /* Dish1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08563CA1B57276400DDAD32 /* Dish1.swift */; };
 		D08563CD1B57277100DDAD32 /* Dish2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08563CC1B57277100DDAD32 /* Dish2.swift */; };
 		D08563CF1B57277C00DDAD32 /* Dish3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08563CE1B57277C00DDAD32 /* Dish3.swift */; };
 		D08563D11B57278A00DDAD32 /* Dish4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08563D01B57278A00DDAD32 /* Dish4.swift */; };
+		D095BABC1B6AD3890039436F /* Food1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095BABB1B6AD3890039436F /* Food1.swift */; };
+		D095BAC61B6ADEDA0039436F /* Food2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095BAC51B6ADEDA0039436F /* Food2.swift */; };
+		D095BAC81B6AF0090039436F /* Food3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095BAC71B6AF0090039436F /* Food3.swift */; };
+		D095BACA1B6AF1090039436F /* Food4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095BAC91B6AF1090039436F /* Food4.swift */; };
 		D0B4973E1B49E2850021C475 /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B4973D1B49E2840021C475 /* Gameplay.swift */; };
 		D0B4974A1B49F0020021C475 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B497491B49F0020021C475 /* Customer.swift */; };
 		D0C88F591B5EEFB000554BFB /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C88F581B5EEFB000554BFB /* GameOver.swift */; };
@@ -107,6 +113,8 @@
 		D0C88F671B604EC600554BFB /* Box3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C88F661B604EC600554BFB /* Box3.swift */; };
 		D0C88F691B60530B00554BFB /* Box4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C88F681B60530B00554BFB /* Box4.swift */; };
 		D0D1073A1B4F3944009ACF62 /* Customer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D107391B4F3944009ACF62 /* Customer2.swift */; };
+		D0F40AAE1B72B9AB00C6C4DC /* TapArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */; };
+		E023297399D48FEB6757697E /* Pods_Bento_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D53083D5BCEC4804E1E613 /* Pods_Bento_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +170,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36D53083D5BCEC4804E1E613 /* Pods_Bento_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bento_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -187,6 +196,7 @@
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		927F61BF196C771E000F43EF /* Bento Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bento Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A79BD8CB4EF787B9B2C3935B /* Pods-Bento iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bento iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bento iOS/Pods-Bento iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -224,12 +234,19 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		C876FDEA57611008CB60008B /* Pods-Bento iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bento iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bento iOS/Pods-Bento iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D040CF981B53802700BBA042 /* FoodCritic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCritic.swift; sourceTree = "<group>"; };
+		D08088D51B6BDE1E0029A727 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		D08088D91B6F400B0029A727 /* Plate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 		D08563C01B55C0F500DDAD32 /* Tea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tea.swift; sourceTree = "<group>"; };
 		D08563CA1B57276400DDAD32 /* Dish1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish1.swift; sourceTree = "<group>"; };
 		D08563CC1B57277100DDAD32 /* Dish2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish2.swift; sourceTree = "<group>"; };
 		D08563CE1B57277C00DDAD32 /* Dish3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish3.swift; sourceTree = "<group>"; };
 		D08563D01B57278A00DDAD32 /* Dish4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish4.swift; sourceTree = "<group>"; };
+		D095BABB1B6AD3890039436F /* Food1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food1.swift; sourceTree = "<group>"; };
+		D095BAC51B6ADEDA0039436F /* Food2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food2.swift; sourceTree = "<group>"; };
+		D095BAC71B6AF0090039436F /* Food3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food3.swift; sourceTree = "<group>"; };
+		D095BAC91B6AF1090039436F /* Food4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food4.swift; sourceTree = "<group>"; };
 		D0B4973D1B49E2840021C475 /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		D0B497491B49F0020021C475 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		D0C88F581B5EEFB000554BFB /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
@@ -238,6 +255,7 @@
 		D0C88F661B604EC600554BFB /* Box3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box3.swift; sourceTree = "<group>"; };
 		D0C88F681B60530B00554BFB /* Box4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box4.swift; sourceTree = "<group>"; };
 		D0D107391B4F3944009ACF62 /* Customer2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer2.swift; sourceTree = "<group>"; };
+		D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapArrow.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,6 +311,7 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
+				E023297399D48FEB6757697E /* Pods_Bento_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,20 +484,27 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				D0B4973D1B49E2840021C475 /* Gameplay.swift */,
+				D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */,
+				D08088D91B6F400B0029A727 /* Plate.swift */,
 				D0C88F5C1B60121600554BFB /* Box1.swift */,
 				D0C88F641B60486300554BFB /* Box2.swift */,
 				D0C88F661B604EC600554BFB /* Box3.swift */,
 				D0C88F681B60530B00554BFB /* Box4.swift */,
 				D0C88F581B5EEFB000554BFB /* GameOver.swift */,
 				D08563CA1B57276400DDAD32 /* Dish1.swift */,
+				D095BABB1B6AD3890039436F /* Food1.swift */,
 				D08563CC1B57277100DDAD32 /* Dish2.swift */,
+				D095BAC51B6ADEDA0039436F /* Food2.swift */,
+				D095BAC71B6AF0090039436F /* Food3.swift */,
 				D08563CE1B57277C00DDAD32 /* Dish3.swift */,
+				D095BAC91B6AF1090039436F /* Food4.swift */,
 				D08563D01B57278A00DDAD32 /* Dish4.swift */,
 				D08563C01B55C0F500DDAD32 /* Tea.swift */,
 				D040CF981B53802700BBA042 /* FoodCritic.swift */,
 				D0B497491B49F0020021C475 /* Customer.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 				D0D107391B4F3944009ACF62 /* Customer2.swift */,
+				D08088D51B6BDE1E0029A727 /* Tutorial.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -513,6 +539,7 @@
 				B77F1CCF17B978D8009739AE /* Supporting Files */,
 				B77F1B3017B978D7009739AE /* Frameworks */,
 				B77F1B2F17B978D7009739AE /* Products */,
+				D94DFF760223A471B0AA1FB3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -550,6 +577,7 @@
 				B77F1B3D17B978D7009739AE /* Foundation.framework */,
 				B77F1B3F17B978D7009739AE /* CoreGraphics.framework */,
 				B77F1B4117B978D7009739AE /* CoreText.framework */,
+				36D53083D5BCEC4804E1E613 /* Pods_Bento_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -576,6 +604,15 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D94DFF760223A471B0AA1FB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A79BD8CB4EF787B9B2C3935B /* Pods-Bento iOS.debug.xcconfig */,
+				C876FDEA57611008CB60008B /* Pods-Bento iOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -622,11 +659,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "Bento iOS" */;
 			buildPhases = (
+				3E99CEFE0E451B3D6FB23AA4 /* Check Pods Manifest.lock */,
 				D2E0167A18D782EC00927430 /* Run Script */,
 				B77F1B2A17B978D7009739AE /* Sources */,
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				D352B47A19EC5D8A00829775 /* Compile Metal Shaders */,
 				B77F1B2C17B978D7009739AE /* Resources */,
+				CAC7BE32A895AC6E99FEF6BA /* Embed Pods Frameworks */,
+				29FB2B210AF4D21DF2D08E4C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -788,6 +828,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		29FB2B210AF4D21DF2D08E4C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bento iOS/Pods-Bento iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E99CEFE0E451B3D6FB23AA4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		927F619B196C771E000F43EF /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -801,6 +871,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "osascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'";
+		};
+		CAC7BE32A895AC6E99FEF6BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bento iOS/Pods-Bento iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D2E0167A18D782EC00927430 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -855,6 +940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08088DA1B6F400B0029A727 /* Plate.swift in Sources */,
 				D0C88F691B60530B00554BFB /* Box4.swift in Sources */,
 				D0D1073A1B4F3944009ACF62 /* Customer2.swift in Sources */,
 				D0C88F671B604EC600554BFB /* Box3.swift in Sources */,
@@ -863,13 +949,19 @@
 				D0C88F591B5EEFB000554BFB /* GameOver.swift in Sources */,
 				D040CF991B53802700BBA042 /* FoodCritic.swift in Sources */,
 				D08563CD1B57277100DDAD32 /* Dish2.swift in Sources */,
+				D0F40AAE1B72B9AB00C6C4DC /* TapArrow.swift in Sources */,
 				D08563CF1B57277C00DDAD32 /* Dish3.swift in Sources */,
 				D0B4973E1B49E2850021C475 /* Gameplay.swift in Sources */,
 				D0C88F651B60486300554BFB /* Box2.swift in Sources */,
+				D095BABC1B6AD3890039436F /* Food1.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
+				D095BAC81B6AF0090039436F /* Food3.swift in Sources */,
+				D095BACA1B6AF1090039436F /* Food4.swift in Sources */,
+				D08088D61B6BDE1E0029A727 /* Tutorial.swift in Sources */,
 				D08563C11B55C0F500DDAD32 /* Tea.swift in Sources */,
 				D08563CB1B57276400DDAD32 /* Dish1.swift in Sources */,
 				D08563D11B57278A00DDAD32 /* Dish4.swift in Sources */,
+				D095BAC61B6ADEDA0039436F /* Food2.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				D0C88F5D1B60121600554BFB /* Box1.swift in Sources */,
 			);
@@ -1150,6 +1242,7 @@
 		};
 		B77F1CDF17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A79BD8CB4EF787B9B2C3935B /* Pods-Bento iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1166,6 +1259,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1174,6 +1268,7 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = Bento;
 				PROVISIONING_PROFILE = "";
@@ -1185,6 +1280,7 @@
 		};
 		B77F1CE017B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C876FDEA57611008CB60008B /* Pods-Bento iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1200,6 +1296,7 @@
 					"Source/libs/cocos2d-iphone/external/Chipmunk/include",
 					"\"Source/libs/cocos2d-iphone/cocos2d-ui\"/**",
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Source/Resources/Platforms/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1207,6 +1304,7 @@
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = Bento;
 				PROVISIONING_PROFILE = "";

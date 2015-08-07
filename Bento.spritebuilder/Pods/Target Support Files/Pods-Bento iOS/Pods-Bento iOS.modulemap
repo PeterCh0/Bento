@@ -1,0 +1,6 @@
+framework module Pods_Bento_iOS {
+  umbrella header "Pods-Bento iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
