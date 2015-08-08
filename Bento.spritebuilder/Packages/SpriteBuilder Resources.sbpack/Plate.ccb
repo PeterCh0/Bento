@@ -1201,8 +1201,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>-20</real>
-							<real>0.0</real>
+							<real>10</real>
+							<real>10</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1215,8 +1215,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.47185057401657104</real>
-							<real>0.47862565517425537</real>
+							<real>0.49825438857078552</real>
+							<real>0.47984978556632996</real>
 						</array>
 					</dict>
 					<dict>
@@ -1245,7 +1245,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>8</real>
+						<real>0.0</real>
 					</dict>
 					<dict>
 						<key>baseValue</key>
@@ -1354,8 +1354,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>0.0</real>
-					<real>0.0</real>
+					<real>0.5</real>
+					<real>0.5</real>
 				</array>
 			</dict>
 			<dict>
@@ -1427,7 +1427,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.40000000596046448</real>
+			<real>0.69999998807907104</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

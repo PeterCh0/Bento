@@ -36,7 +36,6 @@ class Customer: CCNode {
     
     func didLoadFromCCB() {
         
-        setOrder()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("scaleDish1:"), name:"dish1 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("scaleDish2:"), name:"dish2 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("scaleDish3:"), name:"dish3 served", object: nil)

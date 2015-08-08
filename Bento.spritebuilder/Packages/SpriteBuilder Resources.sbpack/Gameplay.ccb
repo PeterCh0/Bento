@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>130</integer>
+	<integer>131</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -6010,9 +6010,9 @@ serve the food!</string>
 								<string>Color3</string>
 								<key>value</key>
 								<array>
-									<real>0.87000000476837158</real>
-									<real>0.77843910455703735</real>
-									<real>0.7870560884475708</real>
+									<real>0.94194036722183228</real>
+									<real>0.94718462228775024</real>
+									<real>0.92835521697998047</real>
 									<real>1</real>
 								</array>
 							</dict>
@@ -6025,6 +6025,8 @@ serve the food!</string>
 								<real>1</real>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -6109,9 +6111,9 @@ serve the food!</string>
 								<string>Color3</string>
 								<key>value</key>
 								<array>
-									<real>0.1745222806930542</real>
-									<real>0.87000000476837158</real>
-									<real>0.36019080877304077</real>
+									<real>0.017140612006187439</real>
+									<real>1</real>
+									<real>0.064606234431266785</real>
 									<real>1</real>
 								</array>
 							</dict>
@@ -6124,8 +6126,6 @@ serve the food!</string>
 								<real>1</real>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

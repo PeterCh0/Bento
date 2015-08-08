@@ -11,13 +11,15 @@ import UIKit
 class GameOver: CCNode {
     
     weak var goScoreLabel: CCLabelTTF!
+    weak var highScoreGO: CCLabelTTF!
     weak var goTimeLabel: CCLabelTTF!
     weak var goTeaLabel: CCLabelTTF!
     weak var goDishesServedLabel: CCLabelTTF!
     weak var goPerfectOrdersLabel: CCLabelTTF!
     
-    func setResults (score: Int, time: Float, tea: Int, dishes: Int, perfect: Int) {
+    func setResults (score: Int, high: Int, time: Float, tea: Int, dishes: Int, perfect: Int) {
         goScoreLabel.string = String(Int(score))
+        highScoreGO.string = String(high)
         goTimeLabel.string = String(Int(time))
         goTeaLabel.string = String(tea)
         goDishesServedLabel.string = String(dishes)

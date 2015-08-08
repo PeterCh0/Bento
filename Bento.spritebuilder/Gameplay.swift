@@ -52,6 +52,9 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     // MARK: variables
     
     
+    // highscore class
+    var persistentData: PersistentData = PersistentData()
+    
     // Code connections
     
     var fadeTransition: CCTransition = CCTransition(fadeWithDuration: 1)
@@ -84,6 +87,10 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     var tapArrow5: CCNode?
     var tapArrowTea: CCNode?
     var holdIcon: CCNode?
+    
+    
+    var customerTapIcon: CCNode?
+    var tapWarning = false
     
     // HUD buttons
     weak var gameRetryButton: CCLabelTTF!
@@ -136,7 +143,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     var timeBad: Float = 1
     
     // Total time of the day
-    var totalTime: Float = 30
+    var totalTime: Float = 35
     var totalTimer: Float = 0
     
     // Customer variables
@@ -331,6 +338,13 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
                 patienceLeft -= Float(delta)
                 totalTimer += Float(delta)
                 
+                if patienceLeft < 1.5 && tapWarning == false {
+                    tapWarning = true
+                    customerTapIcon = CCBReader.load("TapIcon")
+
+                    customerNode.addChild(customerTapIcon)
+                }
+                
                 if totalTimer > godTime {
                     difficultyScale = .God
                 }
@@ -353,6 +367,10 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
             
                 if patienceLeft == 0 {
 
+                    tapWarning = false
+                    if let customerTapIco = customerTapIcon {
+                        customerTapIco.removeFromParent()
+                    }
                     plate!.removeFromParent()
                     customer!.removeFromParent()
 
@@ -453,7 +471,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         NSTimer.scheduledTimerWithTimeInterval(7.5, target: self, selector: Selector("pushBox4"), userInfo: nil, repeats: false)
 
         NSTimer.scheduledTimerWithTimeInterval(8.5, target: self, selector: Selector("endTutorialPhase2"), userInfo: nil, repeats: false)
-        endTutorialPhase2()
+        //endTutorialPhase2()
     }
     
     func endTutorialPhase2() {
@@ -583,6 +601,20 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
 
     
     func gameover() {
+        if gameDifficulty == .Easy {
+            
+            if payout > persistentData.highScoreEasy {
+                persistentData.highScoreEasy = payout
+            }
+        }
+        
+        if gameDifficulty == .Hard {
+            
+            if payout > persistentData.highScoreHard {
+                persistentData.highScoreHard = payout
+            }
+        }
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
 
         gameRetryButton.visible = false
@@ -590,8 +622,23 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         serveButton.visible = false
         timeLeftLabel.string = String(0)
         var gameOverScreen = CCBReader.load("GameOver", owner: self) as! GameOver
-        gameOverScreen.setResults(payout, time: totalTimer, tea: teaServed, dishes: dishesServed, perfect: perfectOrders)
-        gameOverNode.addChild(gameOverScreen)
+        if gameDifficulty == .Easy {
+        
+            gameOverScreen.setResults(payout, high: persistentData.highScoreEasy, time: totalTimer, tea: teaServed, dishes: dishesServed, perfect: perfectOrders)
+        }
+        
+        if gameDifficulty == .Hard {
+            
+            gameOverScreen.setResults(payout, high: persistentData.highScoreHard, time: totalTimer, tea: teaServed, dishes: dishesServed, perfect: perfectOrders)
+        }
+        let gameOverScreenPos = CGPoint(x: CCDirector.sharedDirector().viewSize().width / 2, y: CCDirector.sharedDirector().viewSize().height * 2)
+        let gameOverPos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
+        let moveGameOver = CCActionMoveTo(duration: 1, position: gameOverPos)
+        let bounceGameOver = CCActionEaseBackOut(action: moveGameOver)
+        gameOverScreen.position = gameOverScreenPos
+        gameOverScreen.runAction(bounceGameOver)
+
+        self.addChild(gameOverScreen)
         gameState = .Gameover
         
     } // gameover()
@@ -623,6 +670,9 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         
         if gameDifficulty == .Tutorial {
             customer!.setTutorialOrder()
+        }
+        else {
+            customer!.setOrder()
         }
 
         orderCount1 = customer!.order1
@@ -672,7 +722,11 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         }
 
         plate = CCBReader.load("Plate") as? Plate
-        plateNode.addChild(plate)
+
+        let messagePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.45)
+        plate!.position = messagePos
+        
+        self.addChild(plate)
 
     } // spawnCustomer()
     
@@ -740,8 +794,16 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     func serve() {
         
-        let platePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width / 2, y: CCDirector.sharedDirector().viewSize().height * 0.6)
+        tapWarning = false
+        
+        if let customerTapIco = customerTapIcon {
+            customerTapIco.removeFromParent()
+        }
+        
+        let platePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width / 2, y: CCDirector.sharedDirector().viewSize().height * 0.5)
         let servePlate = CCActionMoveTo(duration: 0.2, position: platePos)
+        let scalePlate = CCActionScaleBy(duration: 0.2, scale: 0.7)
+        plate!.runAction(scalePlate)
         plate!.runAction(servePlate)
         NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("deallocPlate"), userInfo: nil, repeats: false)
  
@@ -754,7 +816,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
             // dissatisfied expression here
             isBadOrder = true
             NSNotificationCenter.defaultCenter().postNotificationName("bad order", object: nil)
-
+            return
         }
         
         dishesServed++
@@ -823,6 +885,8 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     func deallocPlate() {
         
+        // deallocates the plate after served
+        
             plate!.removeFromParent()
             customer!.removeFromParent()
             
@@ -834,12 +898,18 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func menu() {
+        
+        // button selector that returns user back to the menu scene
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
 
         let menuScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(menuScene)
         
     }
+    
+    
+    //selectors
     
     func serveDish1(notification: NSNotification) {
         
