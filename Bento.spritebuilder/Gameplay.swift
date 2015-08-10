@@ -16,6 +16,8 @@
 
 
 import UIKit
+import GameKit
+import Mixpanel
 
 enum TutorialPhase {
     case Phase1
@@ -51,6 +53,8 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     // MARK: variables
     
+    // mixpanel  implementation
+    let mixpanel: Mixpanel = Mixpanel.sharedInstance()
     
     // highscore class
     var persistentData: PersistentData = PersistentData()
@@ -143,7 +147,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     var timeBad: Float = 1
     
     // Total time of the day
-    var totalTime: Float = 35
+    var totalTime: Float = 30
     var totalTimer: Float = 0
     
     // Customer variables
@@ -195,23 +199,24 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     var payPerfect = 0
     var payGood = 0
     var payBad = 0
-    var payout = 0 {
-        didSet {
-            scoreBonusLabel.string = String(payIncrease)
-            scoreBonusLabel.visible = true
-            scorePlusLabel.visible = true
-            timeBonusLabel.string = String(stringInterpolationSegment: timeBonus)
-            timeBonusLabel.visible = true
-            timePlusLabel.visible = true
-        }
-    }
+    var payout = 0
+//    var payout = 0 {
+//        didSet {
+////            scoreBonusLabel.string = String(payIncrease)
+////            scoreBonusLabel.visible = true
+////            scorePlusLabel.visible = true
+////            timeBonusLabel.string = String(stringInterpolationSegment: timeBonus)
+////            timeBonusLabel.visible = true
+////            timePlusLabel.visible = true
+//        }
+//    }
     
     // score and time bonus labels and timer
-    var bonusTimer: Float = 0
-    weak var timePlusLabel: CCLabelTTF!
-    weak var timeBonusLabel: CCLabelTTF!
-    weak var scorePlusLabel: CCLabelTTF!
-    weak var scoreBonusLabel: CCLabelTTF!
+//    var bonusTimer: Float = 0
+//    weak var timePlusLabel: CCLabelTTF!
+//    weak var timeBonusLabel: CCLabelTTF!
+//    weak var scorePlusLabel: CCLabelTTF!
+//    weak var scoreBonusLabel: CCLabelTTF!
     
     // Gamestate enum
     var gameState: GameState = .Playing
@@ -244,7 +249,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     // play any openning animations
     func didLoadFromCCB() {
-        
+
         lifeBarBG.zOrder -= 1
         lifeBar.zOrder -= 1
         
@@ -255,7 +260,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveTea:"), name:"tea done", object: nil)
 
         timeLeft = totalTime
-        combo = [bonusFish1, bonusFish2, bonusFish3]
+//        combo = [bonusFish1, bonusFish2, bonusFish3]
         userInteractionEnabled = true
             
     } // didLoadFromCCB()
@@ -263,8 +268,19 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     override func onEnter() {
         super.onEnter()
         spawnCustomer()
+        
+        if gameDifficulty == .Easy {
+            mixpanel.track("Game Loaded", properties: ["Game Mode": "Easy"])
+        }
+        
+        if gameDifficulty == .Hard {
+            mixpanel.track("Game Loaded", properties: ["Game Mode": "Hard"])
+        }
 
         if gameDifficulty == .Tutorial {
+            
+            mixpanel.track("Game Loaded", properties: ["Game Mode": "Tutorial"])
+            
             NSNotificationCenter.defaultCenter().postNotificationName("tutorial mode", object: nil)
             serveButton.visible = false
             startTutorialPhase1()
@@ -278,6 +294,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     override func update(delta: CCTime) {
+
         if gameDifficulty == .Tutorial {
             
             if tutorialPhase == .Phase1 {
@@ -378,18 +395,18 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
                     spawnCustomer()
                 }
             
-                if scoreBonusLabel.visible == true {
-                    bonusTimer += Float(delta)
-                }
-            
-                if bonusTimer > 0.3 {
-                    
-                    scoreBonusLabel.visible = false
-                    scorePlusLabel.visible = false
-                    timePlusLabel.visible = false
-                    timeBonusLabel.visible = false
-                    bonusTimer = 0
-                }
+//                if scoreBonusLabel.visible == true {
+//                    bonusTimer += Float(delta)
+//                }
+//            
+//                if bonusTimer > 0.3 {
+//                    
+//                    scoreBonusLabel.visible = false
+//                    scorePlusLabel.visible = false
+//                    timePlusLabel.visible = false
+//                    timeBonusLabel.visible = false
+//                    bonusTimer = 0
+//                }
                 
                 if isBadOrder == true {
                     
@@ -601,6 +618,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
 
     
     func gameover() {
+        
         if gameDifficulty == .Easy {
             
             if payout > persistentData.highScoreEasy {
@@ -615,6 +633,9 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
             }
         }
         
+        mixpanel.track("Level Completed", properties: ["Score": payout])
+        mixpanel.track("Total Gameplay Time", properties: ["Total Time": totalTimer])
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
 
         gameRetryButton.visible = false
@@ -622,8 +643,11 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         serveButton.visible = false
         timeLeftLabel.string = String(0)
         var gameOverScreen = CCBReader.load("GameOver", owner: self) as! GameOver
-        if gameDifficulty == .Easy {
         
+        plate!.zOrder -= 2
+        
+        if gameDifficulty == .Easy {
+            
             gameOverScreen.setResults(payout, high: persistentData.highScoreEasy, time: totalTimer, tea: teaServed, dishes: dishesServed, perfect: perfectOrders)
         }
         
@@ -631,10 +655,12 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
             
             gameOverScreen.setResults(payout, high: persistentData.highScoreHard, time: totalTimer, tea: teaServed, dishes: dishesServed, perfect: perfectOrders)
         }
+        
         let gameOverScreenPos = CGPoint(x: CCDirector.sharedDirector().viewSize().width / 2, y: CCDirector.sharedDirector().viewSize().height * 2)
         let gameOverPos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
         let moveGameOver = CCActionMoveTo(duration: 1, position: gameOverPos)
         let bounceGameOver = CCActionEaseBackOut(action: moveGameOver)
+        
         gameOverScreen.position = gameOverScreenPos
         gameOverScreen.runAction(bounceGameOver)
 
@@ -645,24 +671,24 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     func spawnCustomer() {
         
-//        var spawnRandomizer = CCRANDOM_0_1() * 10
-//        
-//        if spawnRandomizer < 4.5 {
-//            
-//            customer = CCBReader.load("Customer") as? Customer
-//            
-//        } else if spawnRandomizer < 9 {
-//            
-//            customer = CCBReader.load("Customer2") as? Customer
-//            
-//        } else if spawnRandomizer < 10 {
-//            
+        var spawnRandomizer = CCRANDOM_0_1() * 10
+        
+        //customer = CCBReader.load("Customer2") as? Customer
+        
+        if spawnRandomizer < 6 {
+            
+            customer = CCBReader.load("Customer") as? Customer
+            
+        } else if spawnRandomizer < 10 {
+            
+            customer = CCBReader.load("Customer2") as? Customer
+            
+        }
+        //else if spawnRandomizer < 10 {
+//
 //            customer = CCBReader.load("foodCritic") as? Customer
 //            
 //        }
-        
-        customer = CCBReader.load("Customer") as? Customer
-
         
         customerNode.addChild(customer)
         patienceLevel = customer!.patience
@@ -834,21 +860,24 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
             timeLeft += timePerfect
             timeBonus = timePerfect
             
-            if comboCounter != 3 {
-                
-                combo[comboCounter].visible = true
-            }
             
-            comboCounter++
             
-            if comboCounter == 4 {
-                
-                payIncrease = comboBonus
-                payout += comboBonus
-                payoutLabel.string = String(payout)
-                resetCombo()
-                
-            }
+            // next update stuff
+//            if comboCounter != 3 {
+//                
+//                combo[comboCounter].visible = true
+//            }
+            
+            //comboCounter++
+            
+//            if comboCounter == 4 {
+//                
+//                payIncrease = comboBonus
+//                payout += comboBonus
+//                payoutLabel.string = String(payout)
+//                resetCombo()
+//                
+//            }
             
         } else if abs(totalOrderCount - totalServingCount) < accuracyGood {
             
@@ -992,5 +1021,35 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         }
         
     }
+
+    
+
     
 }
+
+// leaderboard not working
+// get it done for next update
+
+extension Gameplay: GKGameCenterControllerDelegate {
+    func showLeaderboard() {
+        var viewController = CCDirector.sharedDirector().parentViewController!
+        var gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+    }
+    
+    // Delegate methods
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func openGameCenter() {
+        println("test")
+        showLeaderboard()
+    }
+    
+    
+}
+
+
+

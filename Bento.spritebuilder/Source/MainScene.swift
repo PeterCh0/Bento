@@ -6,6 +6,10 @@ class MainScene: CCNode {
     weak var titleTutorialButton: CCButton!
     var fadeTransition: CCTransition = CCTransition(fadeWithDuration: 1)
     
+    func didLoadFromCCB() {
+        setUpGameCenter()
+    }
+    
     func play() {
         
         let gameplayScene = CCBReader.loadAsScene("Gameplay")
@@ -31,6 +35,11 @@ class MainScene: CCNode {
         tutorialScene.addChild(gameplayScene)
         gameplayScene.gameDifficulty = .Tutorial
         CCDirector.sharedDirector().presentScene(tutorialScene, withTransition: fadeTransition)
+    }
+    
+    func setUpGameCenter() {
+        let gameCenterInteractor = GameCenterInteractor.sharedInstance
+        gameCenterInteractor.authenticationCheck()
     }
 
 }

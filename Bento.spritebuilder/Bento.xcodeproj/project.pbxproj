@@ -115,6 +115,8 @@
 		D0D1073A1B4F3944009ACF62 /* Customer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D107391B4F3944009ACF62 /* Customer2.swift */; };
 		D0F40AAE1B72B9AB00C6C4DC /* TapArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */; };
 		D0F40ABC1B7510FE00C6C4DC /* PersistentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F40ABB1B7510FE00C6C4DC /* PersistentData.swift */; };
+		D0F40AC41B75EE2B00C6C4DC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F40AC31B75EE2B00C6C4DC /* GameKit.framework */; };
+		D0F40AC61B76C45700C6C4DC /* GameCenterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F40AC51B76C45700C6C4DC /* GameCenterInteractor.swift */; };
 		E023297399D48FEB6757697E /* Pods_Bento_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D53083D5BCEC4804E1E613 /* Pods_Bento_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -258,6 +260,8 @@
 		D0D107391B4F3944009ACF62 /* Customer2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer2.swift; sourceTree = "<group>"; };
 		D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapArrow.swift; sourceTree = "<group>"; };
 		D0F40ABB1B7510FE00C6C4DC /* PersistentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentData.swift; sourceTree = "<group>"; };
+		D0F40AC31B75EE2B00C6C4DC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		D0F40AC51B76C45700C6C4DC /* GameCenterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterInteractor.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F40AC41B75EE2B00C6C4DC /* GameKit.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
@@ -508,6 +513,7 @@
 				D0D107391B4F3944009ACF62 /* Customer2.swift */,
 				D08088D51B6BDE1E0029A727 /* Tutorial.swift */,
 				D0F40ABB1B7510FE00C6C4DC /* PersistentData.swift */,
+				D0F40AC51B76C45700C6C4DC /* GameCenterInteractor.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0F40AC31B75EE2B00C6C4DC /* GameKit.framework */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
 				BC5399D51A44DCC90063F482 /* GLActivityKit.framework */,
@@ -958,6 +965,7 @@
 				D0C88F651B60486300554BFB /* Box2.swift in Sources */,
 				D095BABC1B6AD3890039436F /* Food1.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
+				D0F40AC61B76C45700C6C4DC /* GameCenterInteractor.swift in Sources */,
 				D095BAC81B6AF0090039436F /* Food3.swift in Sources */,
 				D095BACA1B6AF1090039436F /* Food4.swift in Sources */,
 				D08088D61B6BDE1E0029A727 /* Tutorial.swift in Sources */,
