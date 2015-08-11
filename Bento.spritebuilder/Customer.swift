@@ -107,6 +107,7 @@ class Customer: CCNode {
             let squish = CCActionScaleTo(duration: 0.1, scale: (Float(order1) / Float(origOrder1)) * 0.65)
             onigiri1.runAction(squish)
         }
+        
     }
     
     func scaleDish2(notification: NSNotification) {

@@ -52,12 +52,15 @@ enum GameState {
 class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     // MARK: variables
-    
+        
     // mixpanel  implementation
     let mixpanel: Mixpanel = Mixpanel.sharedInstance()
     
     // highscore class
     var persistentData: PersistentData = PersistentData()
+    
+    weak var register: CCNode!
+    weak var timer: CCNode!
     
     // Code connections
     
@@ -240,7 +243,6 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         didSet {
             if gameDifficulty != .Tutorial {
                 patienceLeft = max(min(patienceLeft, patienceLevel), 0)
-                println(patienceLevel)
                 lifeBar.scaleX = patienceLeft / Float(patienceLevel) * 0.7
             }
         }
@@ -258,6 +260,8 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveDish3:"), name:"dish3 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveDish4:"), name:"dish4 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveTea:"), name:"tea done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("menuGO"), name:"menu button pressed", object: nil)
+
 
         timeLeft = totalTime
 //        combo = [bonusFish1, bonusFish2, bonusFish3]
@@ -621,20 +625,22 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         
         if gameDifficulty == .Easy {
             
+            mixpanel.track("Level Completed", properties: ["Score": payout, "Difficulty": "Easy", "Total Time": totalTimer])
+            
             if payout > persistentData.highScoreEasy {
                 persistentData.highScoreEasy = payout
+
             }
         }
         
         if gameDifficulty == .Hard {
             
+            mixpanel.track("Level Completed", properties: ["Score": payout, "Difficulty": "Hard", "Total Time": totalTimer])
+            
             if payout > persistentData.highScoreHard {
                 persistentData.highScoreHard = payout
             }
         }
-        
-        mixpanel.track("Level Completed", properties: ["Score": payout])
-        mixpanel.track("Total Gameplay Time", properties: ["Total Time": totalTimer])
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
 
@@ -668,6 +674,10 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         gameState = .Gameover
         
     } // gameover()
+    
+    func menuGO(notification: NSNotification) {
+        menu()
+    }
     
     func spawnCustomer() {
         
@@ -819,6 +829,13 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     
     func serve() {
+        
+        let squish = CCActionScaleTo(duration: 0.1, scale: 0.4)
+        let unsquish = CCActionScaleTo(duration: 0.1, scale: 1)
+        let seq = CCActionSequence(array: [squish, unsquish])
+        
+        register.runAction(seq)
+        timer.runAction(seq)
         
         tapWarning = false
         
@@ -1044,7 +1061,6 @@ extension Gameplay: GKGameCenterControllerDelegate {
     }
     
     func openGameCenter() {
-        println("test")
         showLeaderboard()
     }
     

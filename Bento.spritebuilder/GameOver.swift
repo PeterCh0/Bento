@@ -27,12 +27,16 @@ class GameOver: CCNode {
         goPerfectOrdersLabel.string = String(perfect)
     }
     
+    func menu() {
+        NSNotificationCenter.defaultCenter().postNotificationName("menu button pressed", object: nil)
+    }
+    
     func shareButtonTapped() {
         var scene = CCDirector.sharedDirector().runningScene
         var node: AnyObject = scene.children[0]
         var screenshot = screenShotWithStartNode(node as! CCNode)
         
-        let sharedText = "This is some default text that I want to share with my users. [This is where I put a link to download my awesome game]"
+        let sharedText = "Bento!~"
         let itemsToShare = [screenshot, sharedText]
         
         var excludedActivities = [ UIActivityTypeAssignToContact,
