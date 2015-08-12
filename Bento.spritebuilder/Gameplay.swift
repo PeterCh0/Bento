@@ -260,7 +260,6 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveDish3:"), name:"dish3 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveDish4:"), name:"dish4 served", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("serveTea:"), name:"tea done", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("menuGO"), name:"menu button pressed", object: nil)
 
 
         timeLeft = totalTime
@@ -754,7 +753,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         }
         
         if gameDifficulty == .Easy {
-            scalePatience(1.5)
+            scalePatience(1.8)
         }
 
         plate = CCBReader.load("Plate") as? Plate
@@ -920,10 +919,8 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         
         
         //customer leave animation here
-        coin = CCBReader.load("Coin", owner: self)
         
         //money flying animation here
-        serveButton.addChild(coin!)
         
     } // serve selector
     

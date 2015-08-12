@@ -4545,7 +4545,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string>menu</string>
+							<string>menuGameover</string>
 							<integer>1</integer>
 						</array>
 					</dict>

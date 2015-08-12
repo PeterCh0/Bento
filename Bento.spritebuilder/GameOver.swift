@@ -27,8 +27,11 @@ class GameOver: CCNode {
         goPerfectOrdersLabel.string = String(perfect)
     }
     
-    func menu() {
-        NSNotificationCenter.defaultCenter().postNotificationName("menu button pressed", object: nil)
+    func menuGameover() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+        let menuScene = CCBReader.loadAsScene("MainScene")
+        CCDirector.sharedDirector().presentScene(menuScene)
     }
     
     func shareButtonTapped() {

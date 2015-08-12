@@ -117,6 +117,7 @@
 		D0F40ABC1B7510FE00C6C4DC /* PersistentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F40ABB1B7510FE00C6C4DC /* PersistentData.swift */; };
 		D0F40AC41B75EE2B00C6C4DC /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F40AC31B75EE2B00C6C4DC /* GameKit.framework */; };
 		D0F40AC61B76C45700C6C4DC /* GameCenterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F40AC51B76C45700C6C4DC /* GameCenterInteractor.swift */; };
+		D0F40AC81B7AC47200C6C4DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F40AC71B7AC47200C6C4DC /* Images.xcassets */; };
 		E023297399D48FEB6757697E /* Pods_Bento_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D53083D5BCEC4804E1E613 /* Pods_Bento_iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -262,6 +263,7 @@
 		D0F40ABB1B7510FE00C6C4DC /* PersistentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentData.swift; sourceTree = "<group>"; };
 		D0F40AC31B75EE2B00C6C4DC /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		D0F40AC51B76C45700C6C4DC /* GameCenterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterInteractor.swift; sourceTree = "<group>"; };
+		D0F40AC71B7AC47200C6C4DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Bento iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -490,9 +492,10 @@
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
+				D08088D91B6F400B0029A727 /* Plate.swift */,
 				D0B4973D1B49E2840021C475 /* Gameplay.swift */,
 				D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */,
-				D08088D91B6F400B0029A727 /* Plate.swift */,
+				D0F40AC71B7AC47200C6C4DC /* Images.xcassets */,
 				D0C88F5C1B60121600554BFB /* Box1.swift */,
 				D0C88F641B60486300554BFB /* Box2.swift */,
 				D0C88F661B604EC600554BFB /* Box3.swift */,
@@ -818,6 +821,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
+				D0F40AC81B7AC47200C6C4DC /* Images.xcassets in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -1257,6 +1261,8 @@
 			baseConfigurationReference = A79BD8CB4EF787B9B2C3935B /* Pods-Bento iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1295,6 +1301,8 @@
 			baseConfigurationReference = C876FDEA57611008CB60008B /* Pods-Bento iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
