@@ -188,11 +188,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>250.20292663574219</real>
-							<real>316.33612060546875</real>
+							<real>0.78188413381576538</real>
+							<real>0.55692976713180542</real>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -217,6 +217,8 @@
 						<string>MainMenuCat2.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -250,11 +252,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>74.963371276855469</real>
-							<real>336.15579223632812</real>
+							<real>0.23426052927970886</real>
+							<real>0.59182357788085938</real>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -3355,8 +3357,6 @@
 								<array/>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -3953,8 +3953,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.99666666984558105</real>
-							<real>0.99666666984558105</real>
+							<real>0.99000000953674316</real>
+							<real>0.99000000953674316</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -4139,7 +4139,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.033333335071802139</real>
+			<real>0.10000000149011612</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

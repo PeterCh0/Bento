@@ -125,7 +125,7 @@
 							<real>0.032452542334794998</real>
 							<real>0.10213346034288406</real>
 							<real>0.13756480813026428</real>
-							<real>0.69999998807907104</real>
+							<real>0.85000002384185791</real>
 						</array>
 					</dict>
 					<dict>
@@ -134,11 +134,9 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.69999998807907104</real>
+						<real>0.85000002384185791</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -435,12 +433,11 @@ Game Art:    Peter Cho
 						<array>
 							<string>Special thanks:
 The lunch Bunch
-
--Garrett Lew
--Alan Chen
--Akihito Okuhata
--Chris Yerina
--Rushil Patel</string>
+-Garrett
+-Alan
+-Akihito
+-Chris
+-Rushil</string>
 							<false/>
 						</array>
 					</dict>
@@ -589,6 +586,8 @@ The lunch Bunch
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

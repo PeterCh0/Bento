@@ -40,10 +40,14 @@ class MainScene: CCNode {
     
     func credits() {
         creditsLayer = CCBReader.load("Credits", owner: self)
+
         let credPos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
         let moveCreds = CCActionMoveTo(duration: 0.3, position: credPos)
+        
         creditsLayer!.position = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 1.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
+        
         self.addChild(creditsLayer)
+        
         creditsLayer?.runAction(moveCreds)
     }
     

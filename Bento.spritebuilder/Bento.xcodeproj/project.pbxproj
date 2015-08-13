@@ -491,11 +491,11 @@
 			isa = PBXGroup;
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
+				D0F40AC71B7AC47200C6C4DC /* Images.xcassets */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				D08088D91B6F400B0029A727 /* Plate.swift */,
 				D0B4973D1B49E2840021C475 /* Gameplay.swift */,
 				D0F40AAD1B72B9AB00C6C4DC /* TapArrow.swift */,
-				D0F40AC71B7AC47200C6C4DC /* Images.xcassets */,
 				D0C88F5C1B60121600554BFB /* Box1.swift */,
 				D0C88F641B60486300554BFB /* Box2.swift */,
 				D0C88F661B604EC600554BFB /* Box3.swift */,

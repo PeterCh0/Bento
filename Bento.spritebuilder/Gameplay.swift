@@ -243,7 +243,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         didSet {
             if gameDifficulty != .Tutorial {
                 patienceLeft = max(min(patienceLeft, patienceLevel), 0)
-                lifeBar.scaleX = patienceLeft / Float(patienceLevel) * 0.7
+                lifeBar.scaleX = patienceLeft / Float(patienceLevel)
             }
         }
     }
@@ -504,8 +504,11 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func startTutorialPhase3() {
+        
         tapArrow5 = CCBReader.load("TapArrow")
         customerNode.addChild(tapArrow5)
+        
+        tutorialMessage2.zOrder += 1
         let messagePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.4)
         let moveMessage = CCActionMoveTo(duration: 0.3, position: messagePos)
         tutorialMessage2.position = CGPoint(x: CCDirector.sharedDirector().viewSize().width * -0.50, y: CCDirector.sharedDirector().viewSize().height * 0.4)
@@ -517,6 +520,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func endTutorialPhase3() {
+        
         tapArrow5?.removeFromParent()
         let messagePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 1.5, y: CCDirector.sharedDirector().viewSize().height * 0.4)
         let moveMessage = CCActionMoveTo(duration: 0.3, position: messagePos)
@@ -525,6 +529,8 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func startTutorialPhase4() {
+        
+        tutorialMessage3.zOrder += 1
         let messagePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
         let moveMessage = CCActionMoveTo(duration: 0.3, position: messagePos)
         tutorialMessage3.position = CGPoint(x: CCDirector.sharedDirector().viewSize().width * -0.50, y: CCDirector.sharedDirector().viewSize().height * 0.5)
@@ -533,6 +539,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func endTutorialPhase4() {
+        
         let messagePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 1.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
         let moveMessage = CCActionMoveTo(duration: 0.3, position: messagePos)
         tutorialMessage3.runAction(moveMessage)
@@ -540,8 +547,11 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     }
     
     func startTutorialPhase5() {
+        
         holdIcon = CCBReader.load("HoldIcon")
         tutorialTeaNode.addChild(holdIcon)
+        
+        tutorialMessage4.zOrder += 1
         let messagePos = CGPoint(x: CCDirector.sharedDirector().viewSize().width * 0.5, y: CCDirector.sharedDirector().viewSize().height * 0.5)
         let moveMessage = CCActionMoveTo(duration: 0.3, position: messagePos)
         tutorialMessage4.position = CGPoint(x: CCDirector.sharedDirector().viewSize().width * -0.50, y: CCDirector.sharedDirector().viewSize().height * 0.5)
@@ -803,9 +813,14 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     
     func retry() {
         var easyDifficulty = false
+        var tutorial = false
         
         if gameDifficulty == .Easy {
             easyDifficulty = true
+        }
+        
+        if gameDifficulty == .Tutorial {
+            tutorial = true
         }
         
         let gameplayScene = CCBReader.load("Gameplay") as! Gameplay
@@ -814,6 +829,11 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         if easyDifficulty == true {
             gameplayScene.gameDifficulty = .Easy
         }
+        
+        if tutorial == true {
+            gameplayScene.gameDifficulty = .Tutorial
+        }
+        
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
 
