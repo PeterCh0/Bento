@@ -17,7 +17,7 @@
 
 import UIKit
 import GameKit
-import Mixpanel
+//import Mixpanel
 
 enum TutorialPhase {
     case Phase1
@@ -54,7 +54,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
     // MARK: variables
         
     // mixpanel  implementation
-    let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+    //let mixpanel: Mixpanel = Mixpanel.sharedInstance()
     
     // highscore class
     var persistentData: PersistentData = PersistentData()
@@ -272,17 +272,17 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         super.onEnter()
         spawnCustomer()
         
-        if gameDifficulty == .Easy {
-            mixpanel.track("Game Loaded", properties: ["Game Mode": "Easy"])
-        }
-        
-        if gameDifficulty == .Hard {
-            mixpanel.track("Game Loaded", properties: ["Game Mode": "Hard"])
-        }
+//        if gameDifficulty == .Easy {
+//            mixpanel.track("Game Loaded", properties: ["Game Mode": "Easy"])
+//        }
+//        
+//        if gameDifficulty == .Hard {
+//            mixpanel.track("Game Loaded", properties: ["Game Mode": "Hard"])
+//        }
 
         if gameDifficulty == .Tutorial {
             
-            mixpanel.track("Game Loaded", properties: ["Game Mode": "Tutorial"])
+           // mixpanel.track("Game Loaded", properties: ["Game Mode": "Tutorial"])
             
             NSNotificationCenter.defaultCenter().postNotificationName("tutorial mode", object: nil)
             serveButton.visible = false
@@ -634,7 +634,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         
         if gameDifficulty == .Easy {
             
-            mixpanel.track("Level Completed", properties: ["Score": payout, "Difficulty": "Easy", "Total Time": totalTimer])
+            //mixpanel.track("Level Completed", properties: ["Score": payout, "Difficulty": "Easy", "Total Time": totalTimer])
             
             if payout > persistentData.highScoreEasy {
                 persistentData.highScoreEasy = payout
@@ -644,7 +644,7 @@ class Gameplay: CCScene, CCPhysicsCollisionDelegate {
         
         if gameDifficulty == .Hard {
             
-            mixpanel.track("Level Completed", properties: ["Score": payout, "Difficulty": "Hard", "Total Time": totalTimer])
+            //mixpanel.track("Level Completed", properties: ["Score": payout, "Difficulty": "Hard", "Total Time": totalTimer])
             
             if payout > persistentData.highScoreHard {
                 persistentData.highScoreHard = payout
